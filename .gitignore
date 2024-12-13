@@ -1,2 +1,5 @@
 node_modules/
 cypress/reports/
+cypress/videos/myTestSaucedemo.cy.js.mp4
+cypress/screenshots/myTestSaucedemo.cy.js/Test Challenge con usuario 2,comprobando si el carrito tiene productos para poder realizar correctamente la compra -- completar formulario de checkout para enviar (failed).png
+cypress/screenshots/myTestSaucedemo.cy.js/Test Challenge con usuario 2,comprobando si el carrito tiene productos para poder realizar correctamente la compra -- comprobar que todos los productos se agregen al carrito (failed).png
