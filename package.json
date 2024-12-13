@@ -1,0 +1,9 @@
+{
+  "devDependencies": {
+    "cypress": "^13.16.1",
+    "cypress-mochawesome-reporter": "^3.8.2"
+  },
+  "scripts":{
+    "html-report": "cypress run --spec cypress/e2e/myTestSaucedemo.cy.js -- browser chrome --headed"
+  }
+}
