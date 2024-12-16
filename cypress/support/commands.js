@@ -45,3 +45,34 @@ Cypress.Commands.add("verificarOrdenProductos", (orden) => {
     }
   });
 });
+
+Cypress.Commands.add("AgregarTodosLosProd",()=>{
+   //a traves de un bucle agregamos todos los productos del carrito si es que ya no estan agregados
+   cy.get(".inventory_item").each(($product) => {
+    cy.wrap($product)
+      .find(".btn_inventory")
+      .then(($btn) => {
+        const buttonText = $btn.text().trim();
+        if (buttonText === "Add to cart") {//si el texto del boton es Add to cart se agrega,si es remove no hace nada
+          cy.wrap($btn).click(); 
+        }
+      });
+  });
+})
+
+
+Cypress.Commands.add("elimitaryVerificarCarrito",()=>{
+  //tomamos todos los productos del carrito y los eliminamos
+  cy.get(".cart_item").each(($product) => {
+    cy.wrap($product).find(".btn").contains('Remove').click();
+  });
+  //comprobamos con un bucle que se pueda hacer clic en el boton remove de los productos y verificamos que no quede nada en el carrito
+  cy.get(".cart_list").then((cartList) => {
+    if (!cartList.find(".cart_item").length) {//si no encuentra ninguna lista,va a devolver un mensaje por consola,y si no va a avisar que quedan productos dentro
+      cy.log("El carrito de compras está vacío.");
+    } else {
+      throw new Error("El carrito sigue con productos.");
+    }
+  });
+  
+})
