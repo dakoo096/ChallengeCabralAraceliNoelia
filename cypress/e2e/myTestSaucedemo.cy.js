@@ -201,5 +201,48 @@ describe(
         expect(precios).to.deep.equal([...precios].sort((a, b) => a - b)); //comparamos los precios con una version ordenada pero al reves
       });
     });
+
+    it("Comprobar en carrito que todos los productos se puedan eliminar correctamente", () => {
+      //a traves de un bucle agregamos todos los productos del carrito si es que ya no estan agregados
+      cy.get(".inventory_item").each(($product) => {
+        cy.wrap($product)
+          .find(".btn_inventory")
+          .then(($btn) => {
+            const buttonText = $btn.text().trim();
+            if (buttonText === "Add to cart") {//si el texto del boton es Add to cart se agrega,si es remove no hace nada
+              cy.wrap($btn).click(); 
+            }
+          });
+      });
+      cy.get("#shopping_cart_container").click();//voy al carrito
+
+      //comprobamos con un bucle que se pueda hacer clic en el boton remove de los productos y verificamos que no quede nada en el carrito
+      cy.get(".cart_item").each(($product) => {
+        cy.wrap($product).find(".btn").contains('Remove').click();
+      });
+      cy.get(".cart_list").then((cartList) => {
+        if (!cartList.find(".cart_item").length) {//si no encuentra ninguna lista,va a devolver un mensaje por consola,y si no va a avisar que quedan productos dentro
+          cy.log("El carrito de compras está vacío.");
+        } else {
+          throw new Error("El carrito sigue con productos.");
+        }
+      });
+    });
+
+    it('corroborar link twitter',()=>{
+      cy.get('[data-test="social-twitter"]')
+      .should('have.attr', 'href', 'https://twitter.com/saucelabs');//corroboramos que el enlace vaya a la ruta especificada sin necesidad de salir de la pag
+    })
+
+    it('corroborar link facebook',()=>{
+      cy.get('[data-test="social-facebook"]')
+      .should('have.attr', 'href', 'https://www.facebook.com/saucelabs');//corroboramos que el enlace vaya a la ruta especificada sin necesidad de salir de la pag
+    })
+
+    it('corroborar link linkedIn',()=>{
+      cy.get('[data-test="social-linkedin"]')
+      .should('have.attr', 'href', 'https://www.linkedin.com/company/sauce-labs/');//corroboramos que el enlace vaya a la ruta especificada sin necesidad de salir de la pag
+    })
   }
+  
 );
