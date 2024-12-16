@@ -22,3 +22,5 @@ Las pruebas incluyen la validación de funcionalidades como el inicio de sesión
 3. **Filtro de orden:**
    - Se probó el fintro de orden de los productos,tanto el orden de A a la Z y viceversa,como por precio de menor a mayor y de mayor a menor.
    
+4. **Enlaces a las redes sociales:**
+   -Se corroboro que los botones de enlaces a redes sociales redireccionen correctamente a los sitios.
