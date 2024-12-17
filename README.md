@@ -2,7 +2,7 @@
 
 Si bien el proyecto cumple con lo solicitado. Hasta el dia 16/12 se estarán terminando las pruebas adicionales que se encuentran en la planilla de pruebas como pendientes de realización, y en trello como pendientes,asi como tambien pueden incorporarse nuevas pruebas para sumar al proyecto. Gracias!
 
-> Link de Trello:  https://trello.com/b/rXVV1Y8p/mytestsaucedemo
+> Link de Trello: https://trello.com/invite/b/675a4b86db2f01269bb44278/ATTIf080410061651169b4d95175f8a9be66D7EDCDD5/mytestsaucedemo-cabral-araceli
 
 >Link de planilla de pruebas:  https://docs.google.com/spreadsheets/d/1TV_9fEMVS04LGKpNJjaxtnNBR5yFQT1J/edit?usp=drive_link&ouid=104219701402391091274&rtpof=true&sd=true
 
